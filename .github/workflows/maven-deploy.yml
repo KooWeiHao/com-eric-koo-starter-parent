@@ -38,7 +38,16 @@ jobs:
                 "id": "github",
                 "username": "KooWeiHao", 
                 "password": "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"
+                "httpHeaders": 
+                  {
+                      "property": 
+                        {
+                            "name": "Authorization",
+                            "value": "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"
+                        }
+                  }
             }]
+          githubServer: false
 
       - name: Build with Maven
         run: mvn clean package
