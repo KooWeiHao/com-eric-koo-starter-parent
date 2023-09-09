@@ -22,9 +22,6 @@
             <id>github</id>
             <name>KooWeiHao</name>
             <url>https://maven.pkg.github.com/KooWeiHao/maven-repository</url>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
         </repository>
     </distributionManagement>
 
