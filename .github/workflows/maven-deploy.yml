@@ -33,7 +33,7 @@ jobs:
       - name: Configure maven settings
         uses: s4u/maven-settings-action@v2.8.0
         with:
-          servers: '[{"id": "github", "username": "KooWeiHao": "password": ${MAVEN_REPOSITORY_TOKEN}}]'
+          servers: '[{"id": "github", "username": "KooWeiHao": "password": "${MAVEN_REPOSITORY_TOKEN}"}]'
           githubServer: false
 
       - name: Build with Maven
