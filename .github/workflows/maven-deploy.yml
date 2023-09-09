@@ -30,10 +30,16 @@ jobs:
           server-id: 'github'
           settings-path: ${{ github.workspace }}
 
+      - name: Configure maven settings
+        uses: s4u/maven-settings-action@v2.8.0
+        with:
+          servers: '[{"id": "github", "username": "KooWeiHao": "password": ${MAVEN_REPOSITORY_TOKEN}}]'
+          githubServer: false
+
       - name: Build with Maven
         run: mvn clean package
 
       - name: Deploy to Github Package
         run: mvn deploy -s $GITHUB_WORKSPACE/settings.xml
         env:
-          GITHUB_TOKEN: ${{ github.token }}
+          MAVEN_REPOSITORY_TOKEN: ${{ secrets.MAVEN_REPOSITORY_TOKEN }}
