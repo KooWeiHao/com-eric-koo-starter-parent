@@ -33,7 +33,12 @@ jobs:
       - name: Configure maven settings
         uses: s4u/maven-settings-action@v2.8.0
         with:
-          servers: '[{"id": "github", "username": "KooWeiHao": "password": "${MAVEN_REPOSITORY_TOKEN}"}]'
+          servers: |
+            [{
+                "id": "github",
+                "username": "KooWeiHao", 
+                "password": "${{ secrets.MAVEN_REPOSITORY_TOKEN }}"
+            }]
           githubServer: false
 
       - name: Build with Maven
@@ -41,5 +46,3 @@ jobs:
 
       - name: Deploy to Github Package
         run: mvn deploy -s $GITHUB_WORKSPACE/settings.xml
-        env:
-          MAVEN_REPOSITORY_TOKEN: ${{ secrets.MAVEN_REPOSITORY_TOKEN }}
