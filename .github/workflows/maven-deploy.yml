@@ -9,10 +9,6 @@ on:
     branches:
       - master
 
-permissions:
-  packages: write
-  contents: read
-
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
@@ -31,9 +27,12 @@ jobs:
         with:
           java-version: '11'
           distribution: 'temurin'
+          server-id: github
+
+      - name: Build with maven
+        run: mvn --batch-mode clean package
 
       - name: Deploy to Github Package
         run: mvn --batch-mode deploy
         env:
-          GITHUB_TOKEN: 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
-#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.MAVEN_REPOSITORY_TOKEN }}
