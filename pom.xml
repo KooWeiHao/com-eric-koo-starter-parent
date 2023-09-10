@@ -21,7 +21,7 @@
         <repository>
             <id>github</id>
             <name>KooWeiHao</name>
-            <url>https://maven.pkg.github.com/KooWeiHao/com-eric-koo-starter-parent</url>
+            <url>https://maven.pkg.github.com/KooWeiHao/maven-repository</url>
         </repository>
     </distributionManagement>
 

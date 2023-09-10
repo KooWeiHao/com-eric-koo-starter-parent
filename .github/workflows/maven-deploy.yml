@@ -35,4 +35,5 @@ jobs:
       - name: Deploy to Github Package
         run: mvn --batch-mode deploy
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: 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
+#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
